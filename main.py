@@ -8,11 +8,19 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import requests
 import json
+import os
+from dotenv import find_dotenv, load_dotenv
 
-API_KEY = ""
+dotenv_path = find_dotenv()
+load_dotenv(dotenv_path)
+
+API_KEY = os.getenv("API_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+API_KEY = API_KEY
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = SECRET_KEY
 Bootstrap5(app)
 
 
