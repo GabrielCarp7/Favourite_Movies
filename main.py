@@ -44,6 +44,9 @@ class Movie(db.Model):
     review: Mapped[str] = mapped_column(nullable=False)
     img_url: Mapped[str] = mapped_column(nullable=False)
 
+# with app.app_context():
+#     db.create_all()
+
 
 class EditForm(FlaskForm):
     new_rating = StringField("Your Rating:", validators=[DataRequired()])
